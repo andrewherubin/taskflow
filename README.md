@@ -56,17 +56,23 @@ jwt.secret=${JWT_SECRET}
 
 ## 🐳 Running with Docker
 
-1️⃣ Build and start containers
+1️⃣ Build and start containers:
+
+```
 docker-compose up --build
+```
 
 2️⃣ Verify services
 
-API: http://localhost:8080/swagger-ui.html
+- API: http://localhost:8080/swagger-ui.html
 
-Database: localhost:5432
+- Database: localhost:5432
 
-3️⃣ Stopping containers
+3️⃣ Stopping containers:
+
+```
 docker-compose down
+```
 
 ## 🧩 Endpoints Overview
 
@@ -99,14 +105,15 @@ Swagger UI supports JWT authorization:
 
 3. Click Authorize (🔒) in Swagger UI
 
-4. Paste the token as
+4. Paste the token
 
 ## 🧰 Development Setup (Without Docker)
 
 To run locally:
 
+```
 mvn clean spring-boot:run
-
+```
 
 Ensure PostgreSQL is running and credentials match your .env or application.properties.
 
