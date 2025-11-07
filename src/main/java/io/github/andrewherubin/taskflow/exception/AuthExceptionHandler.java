@@ -1,3 +1,7 @@
+/*
+ * AuthExceptionHandler - Global exception handler for AuthController.
+ */
+
 package io.github.andrewherubin.taskflow.exception;
 
 import java.util.HashMap;

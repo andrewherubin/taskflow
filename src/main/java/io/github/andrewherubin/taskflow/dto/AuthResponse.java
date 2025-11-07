@@ -1,3 +1,7 @@
+/*
+ * AuthResponse - Data Transfer Object for authentication responses.
+ */
+
 package io.github.andrewherubin.taskflow.dto;
 
 public class AuthResponse {

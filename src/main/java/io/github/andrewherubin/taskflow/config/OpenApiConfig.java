@@ -1,3 +1,7 @@
+/*
+ * OpenApiConfig - Configuration class for OpenAPI (Swagger) documentation.
+ */
+
 package io.github.andrewherubin.taskflow.config;
 
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -7,6 +11,7 @@ import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// OpenAPI configuration with JWT Bearer authentication scheme
 @Configuration
 @SecurityScheme(
         name = "bearerAuth",

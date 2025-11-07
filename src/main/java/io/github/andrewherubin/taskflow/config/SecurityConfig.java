@@ -1,3 +1,7 @@
+/* 
+ * SecurityConfig - Configures security settings for the application.
+ */
+
 package io.github.andrewherubin.taskflow.config;
 
 import org.springframework.context.annotation.Bean;
@@ -17,6 +21,7 @@ public class SecurityConfig {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+    // Define the security filter chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -27,8 +32,8 @@ public class SecurityConfig {
                     "/swagger-ui/**",
                     "/swagger-ui.html",
                     "/api/auth/**"
-                ).permitAll()
-        .anyRequest().authenticated()
+                ).permitAll() // Allow unauthenticated access to these endpoints
+        .anyRequest().authenticated() // Require authentication for all other requests
         )
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

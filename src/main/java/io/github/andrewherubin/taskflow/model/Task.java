@@ -1,3 +1,7 @@
+/*
+ * Task - entity representing a task in the TaskFlow application.
+ */
+
 package io.github.andrewherubin.taskflow.model;
 
 import java.time.LocalDate;
@@ -49,6 +53,7 @@ public class Task {
     @Schema(description = "Due date of the Task.", example = "2024-12-31")
     private LocalDate dueDate;
 
+    // Enumeration for Task Status
     public enum Status {
         PENDING,
         IN_PROGRESS,

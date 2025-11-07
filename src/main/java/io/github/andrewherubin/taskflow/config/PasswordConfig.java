@@ -1,3 +1,7 @@
+/*
+ * PasswordConfig - Configuration class for password encoding.
+ */
+
 package io.github.andrewherubin.taskflow.config;
 
 import org.springframework.context.annotation.Bean;

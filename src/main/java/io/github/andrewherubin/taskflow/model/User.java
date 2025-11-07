@@ -1,3 +1,7 @@
+/*
+ * User - entity representing a user in the TaskFlow application.
+ */
+
 package io.github.andrewherubin.taskflow.model;
 
 import jakarta.persistence.*;
@@ -16,6 +20,7 @@ import java.util.Collections;
 @Table(name = "users")
 public class User implements UserDetails {
 
+    // Unique identifier for the User
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,12 +35,18 @@ public class User implements UserDetails {
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
+    // Default constructor
     public User() {}
 
+    // Constructor with parameters
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
+
+    /*
+     * Getters and Setters
+     */
 
     public Long getId() {
         return id;

@@ -1,3 +1,7 @@
+/*
+ * TaskNotFoundException - Custom exception thrown when a task is not found.
+ */
+
 package io.github.andrewherubin.taskflow.exception;
 
 public class TaskNotFoundException extends RuntimeException {

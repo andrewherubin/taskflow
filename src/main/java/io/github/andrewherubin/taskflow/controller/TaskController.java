@@ -1,8 +1,13 @@
+/*
+ * TaskController - REST controller for managing tasks.
+ */
+
 package io.github.andrewherubin.taskflow.controller;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +53,7 @@ public class TaskController {
         @ApiResponse(responseCode = "403", description = "Access forbidden")
     })
     @GetMapping("/{id}")
-    public Task getTaskById(@PathVariable Long id) {
+    public Task getTaskById(@NonNull @PathVariable Long id) {
         return taskService.getTaskById(id);
     }
 
@@ -59,7 +64,7 @@ public class TaskController {
         @ApiResponse(responseCode = "403", description = "Access forbidden")
     })
     @PostMapping
-    public Task createTask(@Valid @RequestBody Task task) {
+    public Task createTask(@NonNull@Valid @RequestBody Task task) {
         return taskService.createTask(task);
     }
 
@@ -71,7 +76,7 @@ public class TaskController {
         @ApiResponse(responseCode = "403", description = "Access forbidden")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable Long id, @Valid @RequestBody Task task) {
+    public ResponseEntity<Task> updateTask(@NonNull@PathVariable Long id, @NonNull @Valid @RequestBody Task task) {
         return ResponseEntity.ok(taskService.updateTask(id, task));
     }
 
@@ -82,7 +87,7 @@ public class TaskController {
         @ApiResponse(responseCode = "403", description = "Access forbidden")
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTask(@NonNull @PathVariable Long id) {
         taskService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }

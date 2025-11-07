@@ -1,3 +1,7 @@
+/*
+ * AuthRequest - Data Transfer Object for authentication requests.
+ */
+
 package io.github.andrewherubin.taskflow.dto;
 
 import jakarta.validation.constraints.NotBlank;

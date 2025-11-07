@@ -1,3 +1,9 @@
+/*
+ * UserRepository - repository interface for accessing user data.
+ * 
+ * Extends JpaRepository to provide CRUD operations for User entities and connectivity to database.
+ */
+
 package io.github.andrewherubin.taskflow.repository;
 
 import java.util.Optional;

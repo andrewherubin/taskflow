@@ -1,3 +1,7 @@
+/*
+ * SecurityBeansConfig - Configuration class for security-related beans.
+ */
+
 package io.github.andrewherubin.taskflow.config;
 
 import org.springframework.context.annotation.Bean;

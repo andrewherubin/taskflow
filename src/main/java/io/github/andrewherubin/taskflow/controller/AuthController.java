@@ -1,3 +1,7 @@
+/*
+ * AuthController - REST controller for user authentication and registration.
+ */
+
 package io.github.andrewherubin.taskflow.controller;
 
 import io.github.andrewherubin.taskflow.dto.AuthRequest;

@@ -1,3 +1,7 @@
+/*
+ * TaskExceptionHandler - Global exception handler for TaskController.
+ */
+
 package io.github.andrewherubin.taskflow.exception;
 
 import io.github.andrewherubin.taskflow.controller.TaskController;
