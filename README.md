@@ -1,6 +1,6 @@
 # TaskFlow API
 
-TaskFlow is a RESTful task management API built with **Spring Boot**, **PostgreSQL**, and **Docker**. It includes JWT-based user authentication, input validation, and Swagger UI documentation.
+TaskFlow is a RESTful task management API built with **Spring Boot** and **Docker**. It includes JWT-based user authentication, input validation, and Swagger UI documentation.
 
 ---
 
@@ -17,7 +17,6 @@ TaskFlow is a RESTful task management API built with **Spring Boot**, **PostgreS
 - **Java 21**
 - **Spring Boot 3**
 - **Spring Security (JWT)**
-- **PostgreSQL**
 - **Docker / Docker Compose**
 - **SpringDoc OpenAPI (Swagger UI)**
 
@@ -29,34 +28,38 @@ TaskFlow is a RESTful task management API built with **Spring Boot**, **PostgreS
 Create a `.env` file in the project root with the following content:
 
 ```
-POSTGRES_DB=taskflow_db
-POSTGRES_USER=taskflow_user
-POSTGRES_PASSWORD=taskflow_pass
-POSTGRES_PORT=5432
-SPRING_DATASOURCE_URL=jdbc:postgresql://db:${POSTGRES_PORT}/${POSTGRES_DB}
-SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
-SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+DATASOURCE_URL= <full url to be read by spring.datasource.url>
+DATASOURCE_USERNAME= <db username>
+DATASOURCE_PASSWORD= <db password>
+HIBERNATE_DDL_AUTO= <defaults to update>
+HIBERNATE_DIALECT= <dialect for your DB engine>
+JWT_SECRET= <key used for signing JWTs>
+SERVER_PORT= <defaults to 8080>
+APP_NAME= <deafults to TaskFlow-API>
 ```
 
 ### Application Properties
 
+Values read from environment variables.
+
 In src/main/resources/application.properties:
 
 ```
-spring.application.name=taskflow
-spring.datasource.url=${SPRING_DATASOURCE_URL}
-spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
-spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-springdoc.api-docs.path=/api-docs
+spring.datasource.url=${DATASOURCE_URL}
+spring.datasource.username=${DATASOURCE_USERNAME}
+spring.datasource.password=${DATASOURCE_PASSWORD}
+spring.jpa.hibernate.ddl-auto=${HIBERNATE_DDL_AUTO:update}
+spring.jpa.properties.hibernate.dialect=${HIBERNATE_DIALECT}
+app.jwt.secret=${JWT_SECRET}
+server.port=${SERVER_PORT:8080}
+springdoc.api-docs.enabled=true
 springdoc.swagger-ui.path=/swagger-ui.html
-jwt.secret=${JWT_SECRET}
+spring.application.name=${APP_NAME:TaskFlow-API}
 ```
 
 ## 🐳 Running with Docker
 
-1️⃣ Build and start containers:
+1️⃣ Build and start container:
 
 ```
 docker-compose up --build
@@ -68,7 +71,7 @@ docker-compose up --build
 
 - Database: localhost:5432
 
-3️⃣ Stopping containers:
+3️⃣ Stopping container:
 
 ```
 docker-compose down
@@ -115,7 +118,7 @@ To run locally:
 mvn clean spring-boot:run
 ```
 
-Ensure PostgreSQL is running and credentials match your .env or application.properties.
+Ensure DB is running and credentials match your .env or application.properties.
 
 ## 🧑‍💻 Author
 
